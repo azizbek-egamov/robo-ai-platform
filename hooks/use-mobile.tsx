@@ -3,33 +3,23 @@
 import { useState, useEffect } from "react"
 
 export function useMobile() {
-  // Start with a default value (false) for server rendering
   const [isMobile, setIsMobile] = useState(false)
-  // Track if component is mounted to avoid hydration mismatch
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Mark as mounted after first render
-    setMounted(true)
-
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
     }
 
-    // Initial check
-    checkIfMobile()
+    // Set initial value
+    handleResize()
 
     // Add event listener
-    window.addEventListener("resize", checkIfMobile)
+    window.addEventListener("resize", handleResize)
 
-    // Clean up
-    return () => {
-      window.removeEventListener("resize", checkIfMobile)
-    }
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // During SSR and first render, return false
-  // After mounting, return the actual value
-  return mounted ? isMobile : false
+  return isMobile
 }
 
