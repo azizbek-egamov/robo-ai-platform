@@ -4,6 +4,7 @@ import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -26,13 +27,63 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
-              alt="Robotics and AI"
-              fill
-              className="object-cover"
-              priority
-            />
+            <Carousel className="w-full h-full">
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+                      alt="Robotics and AI"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop"
+                      alt="AI Technology"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2070&auto=format&fit=crop"
+                      alt="Robotics Lab"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?q=80&w=2070&auto=format&fit=crop"
+                      alt="AI Research"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c?q=80&w=2070&auto=format&fit=crop"
+                      alt="Robotics Engineering"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
         </div>
       </div>
