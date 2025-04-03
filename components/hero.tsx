@@ -5,9 +5,22 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { useEffect, useState } from "react"
 
 export default function Hero() {
   const { t } = useLanguage()
+  const [api, setApi] = useState<any>()
+
+  // Set up auto-rotation every 2 seconds
+  useEffect(() => {
+    if (!api) return
+
+    const interval = setInterval(() => {
+      api.scrollNext()
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [api])
 
   return (
     <div className="relative">
@@ -27,13 +40,13 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-            <Carousel className="w-full h-full">
+            <Carousel className="w-full h-full" setApi={setApi}>
               <CarouselContent>
                 <CarouselItem>
                   <div className="relative h-[300px] md:h-[400px] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
-                      alt="Robotics and AI"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vSQKuhTzAHIxhbMEbfz8zOuEtarVPo.png"
+                      alt="Children designing robots on interactive screen"
                       fill
                       className="object-cover"
                       priority
@@ -43,8 +56,8 @@ export default function Hero() {
                 <CarouselItem>
                   <div className="relative h-[300px] md:h-[400px] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop"
-                      alt="AI Technology"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RuNzhtZSBkyV2Bp3xnzD87YsnpWz4A.png"
+                      alt="Child building robot car with electronics"
                       fill
                       className="object-cover"
                     />
@@ -53,8 +66,8 @@ export default function Hero() {
                 <CarouselItem>
                   <div className="relative h-[300px] md:h-[400px] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2070&auto=format&fit=crop"
-                      alt="Robotics Lab"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Xz6oEnLgf1mfU7eCveTjzFftpQlCXV.png"
+                      alt="Child programming educational robots with tablet"
                       fill
                       className="object-cover"
                     />
@@ -63,8 +76,8 @@ export default function Hero() {
                 <CarouselItem>
                   <div className="relative h-[300px] md:h-[400px] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?q=80&w=2070&auto=format&fit=crop"
-                      alt="AI Research"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-FPDRzNRDxYK5EfofdrJbewYQKsyxTW.png"
+                      alt="Students collaborating on robotics project"
                       fill
                       className="object-cover"
                     />
@@ -73,8 +86,18 @@ export default function Hero() {
                 <CarouselItem>
                   <div className="relative h-[300px] md:h-[400px] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c?q=80&w=2070&auto=format&fit=crop"
-                      alt="Robotics Engineering"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-dAO9ZoFGp1Bvo7q5nzMLnPjfik1hlO.png"
+                      alt="Students working with educational robots in classroom"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[300px] md:h-[400px] w-full">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4qnq7gNkvm5D6BNyDkYWjbGOAvNzxD.png"
+                      alt="Robotics competition with student teams"
                       fill
                       className="object-cover"
                     />
