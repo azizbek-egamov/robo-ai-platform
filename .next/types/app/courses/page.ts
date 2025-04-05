@@ -1,4 +1,4 @@
-// File: /home/pycouz/Documents/robo-ai/app/courses/page.tsx
+// File: /Users/shohruh/robo-ai-platform/app/courses/page.tsx
 import * as entry from '../../../../app/courses/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
